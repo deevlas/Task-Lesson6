@@ -171,3 +171,24 @@ usersWithId.sort((a, b) => {
     return b.id - a.id
 })
 console.log(usersWithId)
+
+
+
+// --наисать функцию калькулятора с 2 мя числами и колбеком
+
+function calculator(a, b, result) {
+    console.log(result(a, b))
+}
+
+calculator(3, 5, function (a, b) {
+    return a + b
+})
+// --наисать функцию калькулятора с 3 мя числами и колбеком
+
+function calculator2(a, b, c, resultat) {
+    console.log(resultat(a, b, c))
+}
+
+calculator2(5, 10, 15, function (a, b, c) {
+    return b + c - a
+})
