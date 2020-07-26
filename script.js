@@ -31,8 +31,11 @@ arr.forEach(value => {
 
 // -- перебрать массив при помощи map() и получить новый массив в котором все значения будут в 3 раза больше
 
-let arrMap = arr.map(value => value * 3)
+let arrMap = arr.map(value => {
+    return value * 3
+})
 console.log(arrMap)
+console.log(arr)
 
 
 // - создать массив со словами на 15-20 элементов.
@@ -130,15 +133,41 @@ console.log(userSortDown)
 
 // - відсортувати його за кількістю знаків в імені  (зростання , а потім окремо спадання)
 
-let userSortNameUp = users.sort((a, b) => {
-    return a.name.length - b.name.length
-})
-console.log(userSortNameUp)
+// let userSortNameUp = users.sort((a, b) => {
+//     return a.name.length - b.name.length
+// })
+// console.log(userSortNameUp)
 
-let userSortNameDown = users.sort((a, b) => {
-    return b.name.length - a.name.length
-})
-console.log(userSortNameDown)
+// let userSortNameDown = users.sort((a, b) => {
+//     return b.name.length - a.name.length
+// })
+// console.log(userSortNameDown)
 
 // - пройтись по ньому та додати кожному юзеру поле id - яке характеризує унікальний індентифікатор (По якому принципу його створювати - ваше рішення), та зберегти це в новий масив (первинний масив залишиться без змін)
 // - відсортувати його за індентифікатором
+
+
+// console.log("--------------")
+// let newUsers = JSON.parse(JSON.stringify(users))
+// console.log(newUsers)
+// console.log(users)
+
+// for (let i = 0; i < newUsers.length; i++) {
+//     newUsers[i].id = i + 1
+// }
+// console.log(newUsers)
+
+let usersWithId = users.map((val, index) => {
+    let user = Object.assign({}, val)
+    user.id = index + 1
+    return user
+})
+
+
+console.log(users)
+console.log(usersWithId)
+
+usersWithId.sort((a, b) => {
+    return b.id - a.id
+})
+console.log(usersWithId)
