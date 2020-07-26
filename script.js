@@ -23,6 +23,7 @@ console.log(array)
 
 let arrayFromTen = arr.filter(value => !(value % 10))
 console.log(arrayFromTen)
+
 // -- перебрать (проитерировать) массив при помощи foreach()
 
 arr.forEach(value => {
@@ -192,3 +193,188 @@ function calculator2(a, b, c, resultat) {
 calculator2(5, 10, 15, function (a, b, c) {
     return b + c - a
 })
+
+
+
+let cars = [{
+    producer: "subaru",
+    model: "wrx",
+    year: 2010,
+    color: "blue",
+    type: "sedan",
+    engine: "ej204x",
+    volume: 2,
+    power: 400
+}, {
+    producer: "subaru",
+    model: "legacy",
+    year: 2007,
+    color: "silver",
+    type: "sedan",
+    engine: "ez30",
+    volume: 3,
+    power: 250
+}, {
+    producer: "subaru",
+    model: "tribeca",
+    year: 2011,
+    color: "white",
+    type: "jeep",
+    engine: "ej20",
+    volume: 2,
+    power: 300
+}, {
+    producer: "subaru",
+    model: "leone",
+    year: 1998,
+    color: "yellow",
+    type: "sedan",
+    engine: "ez20x",
+    volume: 2,
+    power: 140
+}, {
+    producer: "subaru",
+    model: "impreza",
+    year: 2014,
+    color: "red",
+    type: "sedan",
+    engine: "ej204x",
+    volume: 2,
+    power: 200
+}, {
+    producer: "subaru",
+    model: "outback",
+    year: 2014,
+    color: "red",
+    type: "hachback",
+    engine: "ej204",
+    volume: 2,
+    power: 165
+}, {
+    producer: "bmw",
+    model: "115",
+    year: 2013,
+    color: "red",
+    type: "hachback",
+    engine: "f15",
+    volume: 1.5,
+    power: 120
+}, {
+    producer: "bmw",
+    model: "315",
+    year: 2010,
+    color: "white",
+    type: "sedan",
+    engine: "f15",
+    volume: 1.5,
+    power: 120
+}, {
+    producer: "bmw",
+    model: "650",
+    year: 2009,
+    color: "black",
+    type: "coupe",
+    engine: "f60",
+    volume: 6,
+    power: 350
+}, {
+    producer: "bmw",
+    model: "320",
+    year: 2012,
+    color: "red",
+    type: "sedan",
+    engine: "f20",
+    volume: 2,
+    power: 180
+}, {
+    producer: "mercedes",
+    model: "e200",
+    year: 1990,
+    color: "silver",
+    type: "sedan",
+    engine: "eng200",
+    volume: 2,
+    power: 180
+}, {
+    producer: "mercedes",
+    model: "e63",
+    year: 2017,
+    color: "yellow",
+    type: "sedan",
+    engine: "amg63",
+    volume: 3,
+    power: 400
+}, {
+    producer: "mercedes",
+    model: "c250",
+    year: 2017,
+    color: "red",
+    type: "sedan",
+    engine: "eng25",
+    volume: 2.5,
+    power: 230
+}];
+// Відфільтрувати масив за наступними крітеріями :
+// - двигун більше 3х літрів
+
+let filterVolume = cars.filter(value => value.volume > 3)
+console.log(filterVolume)
+
+// - двигун = 2л
+
+let filterVol = cars.filter(value => value.volume === 2)
+console.log(filterVol)
+
+// - виробник мерс
+
+let filterMers = cars.filter(mers => mers.producer === "mercedes")
+console.log(filterMers)
+
+// - двигун більше 3х літрів + виробник мерседес
+
+let filtVolumeMers = cars.filter(value => value.volume > 3 && value.producer === "mercedes")
+console.log(filtVolumeMers)
+
+// - двигун більше 3х літрів + виробник субару
+
+let filtVolumeSub = cars.filter(value => value.volume > 3 && value.producer === "subaru")
+console.log(filtVolumeSub)
+
+// - сили більше ніж 300
+
+let filtPower = cars.filter(power => power.power > 300)
+console.log(filtPower)
+
+// - сили більше ніж 300 + виробник субару
+
+let filtPowerSub = cars.filter(pow => pow.power > 300 && pow.producer === "subaru")
+console.log(filtPowerSub)
+
+// - мотор серіі ej
+
+let filterMotor = cars.filter(motor => {
+    return motor.engine.charAt(1) === "j"
+})
+console.log(filterMotor)
+
+// - сили більше ніж 300 + виробник субару + мотор серіі ej
+
+let filterPowerProdEj = cars.filter(car => car.power > 300 && car.producer === "subaru" && car.engine.charAt(1) === 'j')
+console.log(filterPowerProdEj)
+
+// - двигун меньше 3х літрів + виробник мерседес
+
+let fVolumeMers = cars.filter(mers => mers.volume < 3 && mers.producer === "mercedes")
+console.log(fVolumeMers)
+
+// - двигун більше 2л + сили більше 250
+
+let volumePower = cars.filter(car => car.volume > 2 && car.power > 200)
+console.log(volumePower)
+
+
+// - сили більше 250  + виробник бмв
+
+
+let powerBMW = cars.filter(car => car.power > 200 && car.producer === "bmw")
+console.log(powerBMW)
