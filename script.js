@@ -378,3 +378,206 @@ console.log(volumePower)
 
 let powerBMW = cars.filter(car => car.power > 200 && car.producer === "bmw")
 console.log(powerBMW)
+
+
+
+// - взять слдующий массив
+let usersWithAddress = [{
+    id: 1,
+    name: 'vasya',
+    age: 31,
+    status: false,
+    address: {
+        city: 'Lviv',
+        street: 'Shevchenko',
+        number: 16
+    }
+}, {
+    id: 2,
+    name: 'petya',
+    age: 30,
+    status: true,
+    address: {
+        city: 'Lviv',
+        street: 'Shevchenko',
+        number: 1
+    }
+}, {
+    id: 3,
+    name: 'kolya',
+    age: 29,
+    status: true,
+    address: {
+        city: 'Lviv',
+        street: 'Shevchenko',
+        number: 121
+    }
+}, {
+    id: 4,
+    name: 'olya',
+    age: 28,
+    status: false,
+    address: {
+        city: 'Lviv',
+        street: 'Shevchenko',
+        number: 90
+    }
+}, {
+    id: 5,
+    name: 'max',
+    age: 30,
+    status: true,
+    address: {
+        city: 'Lviv',
+        street: 'Shevchenko',
+        number: 115
+    }
+}, {
+    id: 6,
+    name: 'anya',
+    age: 31,
+    status: false,
+    address: {
+        city: 'Lviv',
+        street: 'Shevchenko',
+        number: 2
+    }
+}, {
+    id: 7,
+    name: 'oleg',
+    age: 28,
+    status: false,
+    address: {
+        city: 'Lviv',
+        street: 'Shevchenko',
+        number: 22
+    }
+}, {
+    id: 8,
+    name: 'andrey',
+    age: 29,
+    status: true,
+    address: {
+        city: 'Lviv',
+        street: 'Shevchenko',
+        number: 43
+    }
+}, {
+    id: 9,
+    name: 'masha',
+    age: 30,
+    status: true,
+    address: {
+        city: 'Lviv',
+        street: 'Shevchenko',
+        number: 12
+    }
+}, {
+    id: 10,
+    name: 'olya',
+    age: 31,
+    status: false,
+    address: {
+        city: 'Lviv',
+        street: 'Shevchenko',
+        number: 16
+    }
+}, {
+    id: 11,
+    name: 'max',
+    age: 31,
+    status: true,
+    address: {
+        city: 'Lviv',
+        street: 'Shevchenko',
+        number: 121
+    }
+}];
+// -- отсортировать его по id пользователей
+
+let usersId = usersWithAddress.sort((a, b) => {
+    return a.id - b.id
+})
+console.log(usersId)
+
+// -- отсортировать его по id пользователей в обратном опрядке
+
+let usersIdReverse = usersWithAddress.sort((a, b) => {
+    return b.id - a.id
+})
+
+console.log(usersIdReverse)
+
+// -- отсортировать его по возрасту пользователей
+
+let usersSortAge = usersWithAddress.sort((a, b) => {
+    return a.age - b.age
+})
+console.log(usersSortAge)
+
+// -- отсортировать его по возрасту пользователей в обратном порядке
+
+let usersSortAgeReverse = usersWithAddress.sort((first, second) => {
+    return second.age - first.age
+})
+console.log(usersSortAgeReverse)
+
+// -- отсортировать его по имени пользователей
+
+let usersSortName = usersWithAddress.sort((a, b) => {
+    if (a.name < b.name) {
+        return -1
+    } else {
+        return 1
+    }
+})
+console.log(usersSortName)
+
+// -- отсортировать его по имени пользователей в обратном порядке
+
+let usersSortNameReverse = usersWithAddress.sort((a, b) => {
+    if (a.name < b.name) {
+        return 1
+    } else {
+        return -1
+    }
+})
+console.log(usersSortNameReverse)
+
+// -- отсортировать его по названию улицы  в алфавитном порядке
+
+let usersSortStreet = usersWithAddress.sort((a, b) => {
+    if (a.address.street - b.address.street) {
+        return -1
+    } else {
+        1
+    }
+})
+console.log(usersSortStreet)
+
+// -- отсортировать его по номеру дома по возрастанию
+
+let usersSortNumberHouse = usersWithAddress.sort((a, b) => {
+    return a.address.number - b.address.number
+})
+console.log(usersSortNumberHouse)
+
+// -- отфильтровать (оставить) тех кто младше 30
+
+let usersFilterAge = usersWithAddress.filter(value => value.age < 30)
+console.log(usersFilterAge)
+
+// -- отфильтровать (оставить) тех у кого отрицательный статус
+
+let usersFilterStatus = usersWithAddress.filter(value => value.status === false)
+console.log(usersFilterStatus)
+
+// -- отфильтровать (оставить) тех у кого отрицательный статус и младше 30 лет
+
+let usersFilterStatusAge = usersWithAddress.filter(value => value.status === false && value.age < 30)
+console.log(usersFilterStatusAge)
+
+// -- отфильтровать (оставить) тех у кого номер дома четный
+
+let usersFilterHome = usersWithAddress.filter(value => value.address.number % 2 === 0)
+console.log(usersFilterHome)
