@@ -581,3 +581,126 @@ console.log(usersFilterStatusAge)
 
 let usersFilterHome = usersWithAddress.filter(value => value.address.number % 2 === 0)
 console.log(usersFilterHome)
+
+
+
+
+// ===========================
+// ======ДОПОЛНИТЕЛЬНО========
+// ===========================
+
+// Створити обєкт автомобіля з полями:
+// Марка автомобля, потужність двигуна, власник, ціна, рік випуску.
+// Власник автомобіля теж має бути обєкт, у якого є поля
+// Імя, вік, стаж водіння.
+// Створити не менше 7 та не більше 20 машинок.
+// Зробили половину автопарку ремонт мотору, що збільшить потужність автомобілів на 10% (переприсвоєння змінної потужності).
+// На відремонтовані автомобілі найняти нових водіїв (переприсвоїти змінну водій).
+// Для початку вкладіть всі наші створені автомобілі в масив cars.
+// Далі необхідно рати кожну другу машинку (цикл з кроком в 2), та робити їй підвищення потужності двигуна на 10% та ціну на 5%
+// Після того зробити перевірку досвіду ВСІХ наших водіїв. Якщо досвід водія менший за 5 років, але його вік більший за 25, то необідно відправити його на курси підвищення кваліфікації, що збільшить йому досвід на 1 рік.
+// Також спробуйте порахувати суму, яку потрібно потратити для покупки всіх цих авто в циклі
+
+
+
+let carss = [{
+    marka: "Kia",
+    volume: 2.5,
+    owner: {
+        name: "Vasya",
+        age: 35,
+        exp: 4
+    },
+    price: 10000,
+    year: 2010
+}, {
+    marka: "BMW",
+    volume: 2,
+    owner: {
+        name: "Kostya",
+        age: 3,
+        exp: 7
+    },
+    price: 12000,
+    year: 2008
+}, {
+    marka: "Mercedes",
+    volume: 3.5,
+    owner: {
+        name: "Vova",
+        age: 30,
+        exp: 5
+    },
+    price: 17000,
+    year: 2014
+}, {
+    marka: "Toyota",
+    volume: 1.8,
+    owner: {
+        name: "Petya",
+        age: 26,
+        exp: 4.5
+    },
+    price: 8000,
+    year: 2004
+}, {
+    marka: "Porshe",
+    volume: 3,
+    owner: {
+        name: "Klava",
+        age: 29,
+        exp: 5
+    },
+    price: 20000,
+    year: 2016
+}, {
+    marka: "Kia",
+    volume: 2,
+    owner: {
+        name: "Liza",
+        age: 25,
+        exp: 3
+    },
+    price: 11000,
+    year: 2011
+}, {
+    marka: "Subaru",
+    volume: 2.5,
+    owner: {
+        name: "Viktor",
+        age: 24,
+        exp: 4
+    },
+    price: 12000,
+    year: 2016
+}, {
+    marka: "Renault",
+    volume: 2.5,
+    owner: {
+        name: "Misha",
+        age: 31,
+        exp: 8
+    },
+    price: 13000,
+    year: 2015
+}]
+
+for (let i = 0; i < carss.length; i += 2) {
+    carss[i].volume *= 1.1
+    console.log(carss[i].volume)
+    carss[i].price *= 1.05
+    console.log(carss[i].price)
+    carss[i].owner.name = `${usersWithAddress[i].name}`
+    console.log(carss[i].owner)
+
+}
+let sum = 0;
+for (let i = 0; i < carss.length; i++) {
+    sum += carss[i].price
+    if (carss[i].owner.exp < 5 && carss[i].owner.age > 25) {
+        carss[i].owner.exp += 1;
+        console.log(`${carss[i].owner.name} : ${carss[i].owner.exp} лет опыта`)
+
+    }
+}
+console.log(`Всего нужно $${sum} для покупки всего автопарка`)
