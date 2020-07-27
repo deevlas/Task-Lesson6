@@ -550,7 +550,7 @@ let usersSortStreet = usersWithAddress.sort((a, b) => {
     if (a.address.street - b.address.street) {
         return -1
     } else {
-        1
+        return 1
     }
 })
 console.log(usersSortStreet)
